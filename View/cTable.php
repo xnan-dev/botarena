@@ -32,10 +32,10 @@ class cTable extends cView {
 						if ($head=="rowClazz") continue;
 						if (in_array($head,$hiddenColumns)) continue;
 						$rows=$args["rows"];
-						$td=count($rows)>0 ? $rows[0][$head] : "";
+						$td=count($rows)>0 ? $rows[0][$head] : "";						
 						$row_clazz=is_numeric(str_replace(",","",$td)) ? "number":"text";
 					?>
-				<th scope="col" class="col-<?php echo $row_clazz; ?>">
+				<th scope="col" class="col-<?php echo $row_clazz; ?> col-id-<?php echo $head; ?>">
 					<?php echo $this->translate($head); ?>
 				</th>
 				<?php } ?>

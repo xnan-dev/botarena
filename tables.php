@@ -69,8 +69,8 @@ class TraderPortfolio extends TraderTableView {
 	function tableId() { return "traderPorfolio"; }
 	function filterFn() { return ""; /*"BotArenaWeb\\marketQuotesRowFilter";*/ }
 	function emptyMsg() { return "No hay porfolios asociados"; }
-	function hiddenColumns() { return explode(",","traderId,lastDepositQuantity,lastDepositTime"); }
-	function editableFields() { return ["assetQuantity"]; }
+	function hiddenColumns() { return explode(",","traderId,lastDepositQuantity,lastDepositTime,title"); }
+	function editableFields() { return ["assetQuantity"]; }	
 	function titleColumn() { return "assetId"; }
 
 }
@@ -79,6 +79,7 @@ class MarketLastQuotes extends TraderTableView {
 	function serviceUrlFn() { return "BotArenaWeb\\marketLastQuotesUrl"; }	
 	function viewClazz() { return "BotArenaWeb:MarketLastQuotes"; }	
 	function tableId() { return "marketLastQuotes"; }
+	function hiddenColumns() { return array("title"); }
 	function titleColumn() { return "assetId"; }	
 	//function head() { return ["assetId","buyQuote"]; }
 	function filterFn() { return ""; /*"BotArenaWeb\\marketQuotesRowFilter";*/ }
@@ -92,7 +93,7 @@ class TraderQueuePending extends TraderTableView {
 	///function head() { return explode(";","traderId;queueId;assetId;tradeOp;quantity;limitQuote;currentQuote;status;doable;statusChangeBeat;statusChangeTime"); }
 	function filterFn() { return ""; /* "BotArenaWeb\\marketQuotesRowFilter"; */ }
 	function emptyMsg() { return "No hay operaciones pendientes"; }
-	function hiddenColumns() { return array("traderId"); }
+	function hiddenColumns() { return explode(",","traderId,title"); }
 	function titleColumn() { return "assetId"; }
 	function title(&$row) { return $this->translate($row["tradeOp"])." ".$row["assetId"]; }
 
@@ -117,7 +118,7 @@ class TraderQueueDone extends TraderTableView {
 	//function head() { return explode(";","traderId;queueId;assetId;tradeOp;quantity;limitQuote;doneQuote;doneBalance;valuation;status;doable;statusChangeBeat;statusChangeTime;doneBeat;doneTime"); }
 	function filterFn() { return ""; /*"BotArenaWeb\\marketQuotesRowFilter";*/ }
 	function emptyMsg() { return "No hay operaciones realizadas"; }
-	function hiddenColumns() { return array("traderId","doable","status"); }
+	function hiddenColumns() { return array("traderId","doable","status","title"); }
 	function titleColumn() { return "assetId"; }
 	function title(&$row) { return $this->translate($row["tradeOp"])." ".$row["assetId"]; }
 }
@@ -129,6 +130,7 @@ class TraderSettings extends TraderTableView {
 	//function head() { return explode(";","settingsKey;settingsDescription;settingsValue"); }
 	function filterFn() { return ""; /*"BotArenaWeb\\marketQuotesRowFilter";*/ }
 	function emptyMsg() { return "No hay preferencias definidas"; }
+	function hiddenColumns() { return array("title"); }
 	function titleColumn() { return "settingsKey"; }	
 }
 
@@ -139,8 +141,8 @@ class MarketSettings extends TraderTableView {
 	//function head() { return explode(";","settingsKey;settingsDescription;settingsValue"); }
 	function filterFn() { return ""; /*"BotArenaWeb\\marketQuotesRowFilter";*/ }
 	function emptyMsg() { return "No hay preferencias definidas"; }
+	function hiddenColumns() { return array("title"); }
 	function titleColumn() { return "settingsKey"; }
-
 }
 
 class MarketSchedule extends TraderTableView {
@@ -150,6 +152,7 @@ class MarketSchedule extends TraderTableView {
 	//function head() { return explode(";","settingsKey;settingsDescription;settingsValue"); }
 	function filterFn() { return ""; /*"BotArenaWeb\\marketQuotesRowFilter";*/ }
 	function emptyMsg() { return "No hay preferencias de cronograma definidas"; }
+	function hiddenColumns() { return array("title"); }
 	function titleColumn() { return "settingsKey"; }
 
 }
@@ -162,6 +165,7 @@ class TraderStats extends TraderTableView {
 	//function head() { return ["assetId","value","mean","max","min","cicle","maxBuyByStrategy"]; }
 	function filterFn() { return ""; /*"BotArenaWeb\\marketQuotesRowFilter";*/ }
 	function emptyMsg() { return "No hay estadísticas disponibles"; }
+	function hiddenColumns() { return array("title"); }
 	function titleColumn() { return "assetId"; }
 
 }
@@ -174,6 +178,7 @@ class TraderMediumStats extends TraderTableView {
 	//function head() { return ["assetId","value","mean","max","min","cicle","maxBuyByStrategy"]; }
 	function filterFn() { return ""; /*"BotArenaWeb\\marketQuotesRowFilter";*/ }
 	function emptyMsg() { return "No hay estadísticas disponibles"; }
+	function hiddenColumns() { return array("title"); }
 	function titleColumn() { return "assetId"; }
 }
 
@@ -184,6 +189,7 @@ class TraderLongStats extends TraderTableView {
 	//function head() { return ["assetId","value","mean","max","min","cicle","maxBuyByStrategy"]; }
 	function filterFn() { return ""; /*"BotArenaWeb\\marketQuotesRowFilter";*/ }
 	function emptyMsg() { return "No hay estadísticas disponibles"; }
+	function hiddenColumns() { return array("title"); }
 	function titleColumn() { return "assetId"; }
 }
 
