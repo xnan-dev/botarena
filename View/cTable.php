@@ -33,7 +33,7 @@ class cTable extends cView {
 						if (in_array($head,$hiddenColumns)) continue;
 						$rows=$args["rows"];
 						$td=count($rows)>0 ? $rows[0][$head] : "";
-						$row_clazz=is_numeric(str_replace(",","",$td)) ? "number":"text";
+						$row_clazz=is_numeric(str_replace(",","","".$td)) ? "number":"text";
 					?>
 				<th scope="col" class="col-<?php echo $row_clazz; ?>">
 					<?php echo $this->translate($head); ?>
@@ -49,7 +49,7 @@ class cTable extends cView {
 				<?php foreach($row as $key=>$td) { 
 					if ($key=="rowClazz") continue;
 					if (in_array($key,$hiddenColumns)) continue;
-					$row_clazz=is_numeric(str_replace(",","",$td)) ? "number":"text";
+					$row_clazz=is_numeric(str_replace(",","","".$td)) ? "number":"text";
 				?>
 				<td scope="row" class="col-<?php echo $row_clazz?> <?php echo $rowClazz?>">
 					<?php echo $this->translate($td); ?>

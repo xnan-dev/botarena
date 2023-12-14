@@ -21,8 +21,10 @@ class cBotSuggestion extends View\cCardFeatured {
             $btnClass=$suggestion["tradeOp"]=="Buy" ?  "btn-success" : "btn-danger";
             $opMsg=$suggestion["tradeOp"]=="Buy" ?  "Comprar" : "Vender ";
 
+    $viewRefreshQuery = ""; // patch
+
      (new View\cAcceptCancelButton())->render(array("title"=>"$opMsg <b>$assetId</b>","subtitle"=>"","btn-class"=>$btnClass,"data-cViewToRefresh"=>"BotArenaWeb:PanelBotSuggestions","data-botArenaId"=>$botArenaId,
-          "data-viewRefreshQuery"=>$viewReFreshQuery,
+          "data-viewRefreshQuery"=>$viewRefreshQuery,
         "data-traderId"=>$traderId,"data-queueId"=>$queueId,"acceptAction"=>"tradeOpAccept","cancelAction"=>"tradeOpCancel" ));
     
   }
